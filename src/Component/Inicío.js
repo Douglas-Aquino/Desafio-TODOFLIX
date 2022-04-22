@@ -1,5 +1,5 @@
 import React from "react"
-import { Carousel } from "react-responsive-carousel"
+import Carousel from "react-elastic-carousel"
 import Eternos from "../Imagens/Eternos.png"
 import styled from "styled-components"
 
@@ -36,34 +36,34 @@ export default class Inicío extends React.Component{
 state = {
     Filmes:[
         {
-            nome:"shere",
+            nome:"sherek",
             descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
             poster:'blob:https://xd.adobe.com/07848b4e-5de5-4b2b-a59c-1cd69a157be2'
         },
         {
-            nome:"shere",
+            nome:"sherek",
             descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
             poster:'blob:https://xd.adobe.com/07848b4e-5de5-4b2b-a59c-1cd69a157be2'
         },
         {
-            nome:"shere",
+            nome:"sherek",
             descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
             poster:'blob:https://xd.adobe.com/07848b4e-5de5-4b2b-a59c-1cd69a157be2'
         },
         {
-            nome:"shere",
+            nome:"sherek",
             descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
             poster:'blob:https://xd.adobe.com/07848b4e-5de5-4b2b-a59c-1cd69a157be2'
         },
         {
-            nome:"shere",
+            nome:"sherek",
             descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
             poster:'blob:https://xd.adobe.com/07848b4e-5de5-4b2b-a59c-1cd69a157be2'
         },
         {
-            nome:"shere",
+            nome:"sherek",
             descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
-            poster:'blob:https://xd.adobe.com/07848b4e-5de5-4b2b-a59c-1cd69a157be2'
+            poster:'https://images8.alphacoders.com/679/679877.jpg'
         }]
 } 
 
@@ -82,8 +82,8 @@ state = {
             </Intro>
             <h3>Destaques</h3>
             
-            <Carousel >
-                {this.state.Filmes.map(item => (
+            <Carousel itemsToShow={4}>
+                {this.state.Filmes.map((item) => (
                 <ul>
                     <img src={item.poster}/>
                     <h4>{item.nome}</h4>
