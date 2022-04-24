@@ -1,11 +1,10 @@
 import React from "react"
-import Carousel from "react-elastic-carousel"
+import Carousel from "nuka-carousel"
 import Eternos from "../Imagens/Eternos.png"
 import styled from "styled-components"
 
 
 const Intro = styled.div`
-border:red solid;
 margin-top:5vw;
 display:flex;
 align-items:center;
@@ -16,7 +15,6 @@ margin-left:5vw;
 width:80vw;
 `
 const StyleText = styled.div`
-border:solid blue;
 display:flex;
 flex-direction: column;
 justify-content:space-evenly;
@@ -29,6 +27,35 @@ button{
     background-color:grey;
 }
 `
+const ContainCarrossel = styled.div`
+margin-top:3vw;
+
+
+img{
+    width:10vw;
+    border-radius:10px;
+    margin-left:5vw;
+    &:hover{
+        cursor:pointer;
+        width:12vw;
+        transition:width 0.8s;
+    }
+    
+}
+
+h3{
+    padding:2vw;
+}
+
+h4{
+    margin-left:5vw;
+}
+
+p{
+    padding:1vw;
+    margin-left:5vw;
+}
+`
 // const StyleCarouse = styled
 
 export default class Inicío extends React.Component{
@@ -36,34 +63,34 @@ export default class Inicío extends React.Component{
 state = {
     Filmes:[
         {
-            nome:"sherek",
-            descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
-            poster:'blob:https://xd.adobe.com/07848b4e-5de5-4b2b-a59c-1cd69a157be2'
+            nome:"Red",
+            descriçao:"Uma menina de 13 anos começa a se transformar em um panda vermelho gigante sempre que fica animada.",
+            poster:"https://pbs.twimg.com/media/FEcVUyPXsAQohDs?format=jpg"
         },
         {
-            nome:"sherek",
-            descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
-            poster:'blob:https://xd.adobe.com/07848b4e-5de5-4b2b-a59c-1cd69a157be2'
+            nome:"Moonfall",
+            descriçao:"No filme Moonfall, de Roland Emmerich, uma força misteriosa tira a Lua da sua órbita em torno da Terra e envia-a numa rota de colisão capaz de aniquilar a vida como a conhecemos.",
+            poster:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP1YNmkeDvjY02ul689RVA88XuhWU9bYDogyLsKNvdElB50wIvtmTfgTa_LL-V49UbQZU&usqp=CAU"
         },
         {
-            nome:"sherek",
-            descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
-            poster:'blob:https://xd.adobe.com/07848b4e-5de5-4b2b-a59c-1cd69a157be2'
+            nome:"The Batman",
+            descriçao:"Após dois anos espreitando as ruas como Batman, Bruce Wayne se encontra nas profundezas mais sombrias de Gotham City. Com poucos aliados confiáveis, o vigilante solitário se estabelece como a personificação da vingança para a população.",
+            poster:"https://p2.trrsf.com/image/fget/cf/648/0/images.terra.com/2022/03/06/1303576951-batman-pattinson.jpg"
         },
         {
-            nome:"sherek",
-            descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
-            poster:'blob:https://xd.adobe.com/07848b4e-5de5-4b2b-a59c-1cd69a157be2'
+            nome:"Sem saída",
+            descriçao:"A vida de Nathan vira de cabeça para baixo quando ele encontra sua verdadeira identidade com a ajuda da amiga Karen. Mas o caminho não será fácil, pois a dupla passará a ser perseguida e precisará correr para salvar suas vidas.",
+            poster:"http://www.setcenas.com.br/wp-content/uploads/2021/08/poster-brasileiro-1.jpg"
         },
         {
-            nome:"sherek",
-            descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
-            poster:'blob:https://xd.adobe.com/07848b4e-5de5-4b2b-a59c-1cd69a157be2'
+            nome:"Projeto Adam",
+            descriçao:"Um viajante do tempo volta ao ano de 2022 por acidente e acaba se encontrando com seu eu mais novo. Juntos, e sendo caçados por forças do futuro, os dois embarcam em uma missão para consertar a linha temporal e salvar seus entes queridos.",
+            poster:"https://br.web.img2.acsta.net/pictures/22/03/02/17/11/3732338.png"
         },
         {
-            nome:"sherek",
+            nome:"Shrek",
             descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
-            poster:'https://images8.alphacoders.com/679/679877.jpg'
+            poster:"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/91/54/04/20150812.jpg"
         }]
 } 
 
@@ -80,18 +107,22 @@ state = {
                     <p>Os Eternos são uma raça de seres imortais que viveram durante a antiguidade da Terra, moldando sua história e suas civilizações enquanto batalhavam os malignos Deviantes.</p>
                 </StyleText>
             </Intro>
-            <h3>Destaques</h3>
+            <ContainCarrossel>
+                <h3>Destaques</h3>
             
-            <Carousel itemsToShow={4}>
-                {this.state.Filmes.map((item) => (
-                <ul>
-                    <img src={item.poster}/>
-                    <h4>{item.nome}</h4>
-                    <p>{item.descriçao}</p>
-                </ul>
-                ))}
-            </Carousel>
-            
+                <Carousel slidesToShow={4}
+                wrapAround={true}
+                autoplay={true}
+                >
+                    {this.state.Filmes.map((item) => (
+                    <ul>
+                        <img src={item.poster}/>
+                        <h4>{item.nome}</h4>
+                        <p>{item.descriçao}</p>
+                    </ul>
+                    ))}
+                </Carousel>
+            </ContainCarrossel>
             </>
         )
     }

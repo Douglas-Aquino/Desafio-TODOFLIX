@@ -23,7 +23,6 @@ const GlobalStyle = createGlobalStyle`
 const CotainHeader = styled.div`
 ul{
   color:red;
-border:solid green;
 display:flex;
 justify-content:space-around;
 align-items:center;
@@ -35,14 +34,12 @@ h1{
 }
 `
 const List1 = styled.div`
-border:solid black;
 display:flex;
 align-items:center;
 justify-content:space-between;
 width:45vw;
 `
 const List2 = styled.div`
-border:solid red;
 display:flex;
 align-items:center;
 justify-content:space-between;
@@ -58,7 +55,7 @@ width:20vw;
 
 ::placeholder {
   color:white;
-  background-image:URL={Lupa}; 
+  background-image:URL{Lupa}; 
 }
 `
 const StyleButton = styled.button`
@@ -67,10 +64,6 @@ padding:0.5vw;
 border-radius:5px;
 `
 export default class App extends React.Component{
-
-  
-  
-  
   
   render(){
     return(
