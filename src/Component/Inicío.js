@@ -114,7 +114,7 @@ state = {
                     <button>coração</button>
                     <p>Visto resentemente </p>
                     <h2>Eternos</h2>
-                    <p>Os Eternos são uma raça de seres imortais que viveram durante a antiguidade da Terra, moldando sua história e suas civilizações enquanto batalhavam os malignos Deviantes.</p>
+                    <p>Os Eternos são ummmmma raça de seres imortais que viveram durante a antiguidade da Terra, moldando sua história e suas civilizações enquanto batalhavam os malignos Deviantes.</p>
                 </StyleText>
             </Intro> 
             <T3>Destaques</T3>
