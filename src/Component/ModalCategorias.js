@@ -1,19 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 import Todos from "./Todos";
-import { BrowserRouter as Router,Routes,Route,Link } from "react-router-dom"
 
-const ListRouter = styled(Router)`
-border:solid red;
-margin-top:5vw;
+
+const ListLink = styled.div`
+width:8vw;
 position:absolute;
-top:-1vw;
-left:43.2vw;
-`
-const T2 =styled.h2`
-border:solid red;
-width:10vw;
-margin-top:5;
+top:3.2vw;
+left:36.2vw;
+font-size:1vw;
+font-weight:300;
+height:8vw;
+
+ul{
+    display:flex;
+    justify-content:space-around;
+    align-items:start;
+    flex-direction:column;
+    height:8vw;
+    
+    a{
+
+&:hover{
+    cursor:pointer;
+    text-decoration:underline white;
+}
+    }
+}
 `
 
 export default class ModalHeader extends React.Component{
@@ -21,24 +34,24 @@ export default class ModalHeader extends React.Component{
     
     render(){
         return(
-            <>
-            <h2>Essa é o ModalHeader</h2>
-
-            <ListRouter>
+            <ListLink>
                     <nav>
                         <ul>
                             <li>
-                                <Link to="/Todos">Todos</Link>
+                                <a href="">Todos</a>
+                            </li>
+                            <li>
+                                <a href="">Favoritos</a>
+                            </li>
+                            <li>
+                                <a href="">Já vistos</a>
+                            </li>
+                            <li>
+                                <a href="">Adicionados</a>
                             </li>
                         </ul>
                     </nav>
-                    <Routes>
-                        <Route path="/Todos" element={ <Todos/>} />
-                    </Routes>
-                    
-
-            </ListRouter>
-            </>
+            </ListLink>
         )
     }
 }

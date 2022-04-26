@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import ModalHeader from "./ModalCategorias";
+import Modal from "react-modal/lib/components/Modal";
 
 
 const StyleButton = styled.button`

@@ -36,35 +36,24 @@ font-size:1.5rem;
 
 const ContainCarrossel = styled.div`
 display:flex;
-align-items:flex-start;
+align-items:center;
 justify-content:center;
 margin-top:2vw;
-border:solid blue;
 
 img{
     width:10vw;
     border-radius:10px;
-    
 }
-
 ul{
     display:flex;
     align-items:center;
     justify-content: space-evenly;
     flex-direction:column;
     width:100%;
-    height:100%;
-    border:solid ;
+    height:60vh;
 }
-
-h4{
-    border:solid red;
-
-}
-
 p{
-    border:solid red;
-
+    margin:0 2vw;
 }
 `
 
@@ -123,8 +112,9 @@ state = {
             
                 <Carousel slidesToShow={3}
                 wrapAround={true}
-                autoplay={false}
-                pagination={false}
+                autoplay={true}
+                adaptiveHeight={true}
+                renderBottomCenterControls={false} 
                 >
                     {this.state.Filmes.map(item => (
                     <ul>

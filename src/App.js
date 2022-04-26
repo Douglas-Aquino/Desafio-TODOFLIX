@@ -8,6 +8,8 @@ import IcoRoxo from "./Imagens/IcoRoxo.svg"
 import setabaixo from "./Imagens/setabaixo.svg"
 import Lupa from "./Imagens/Lupa.svg"
 import Modal from "react-modal/lib/components/Modal"
+import Todos from "./Component/Todos"
+import AddModal from "./Component/ModalAdd"
 
 const GlobalStyle = createGlobalStyle` 
   * {
@@ -38,8 +40,9 @@ h1{
 const List1 = styled.div`
 display:flex;
 align-items:center;
-justify-content:space-between;
-width:45vw;
+justify-content:space-around;
+width:40vw;
+
 `
 const List2 = styled.div`
 display:flex;
@@ -49,7 +52,7 @@ width:40vw;
 padding:1vw;
 `
 const StyleInput = styled.input`
-background-image:URL={Lupa}; 
+// background-image:url(${Lupa}); 
 padding:0.5vw;
 background-color:grey;
 border-radius:5px;
@@ -77,9 +80,9 @@ ModalAdd = () => {
 this.setState({add: !this.state.Add})
 }
 
-HendoleInput = (e) => {
-  this.setState({Input:e.target.value})
-}
+// HendoleInput = (e) => {
+//   this.setState({Input:e.target.value})
+// }
 
 
 
@@ -95,25 +98,15 @@ HendoleInput = (e) => {
               <h3><Categorias/></h3>
               </List1>
               <List2>
-                <li>
-                <StyleButton onClick={this.ModalAdd}>Adicionar filme</StyleButton >
-                <Modal
-                style={{
 
-                  content: {
-                    backgroundColor:"white",
-                  
-                  }
-                }}
-                aberto={this.state.Add}
-                >
-                  <p>aberto</p>
-                </Modal>
+                <li>
+                <StyleButton onClick={this.ModalAdd} >Adicionar filme</StyleButton >
+                  {this.state.Add && <AddModal/>}
                 </li> 
 
-                <StyleInput type="text" placeholder="Pesquisar" onChange={this.HendoleInput} />
+                <StyleInput type="text" placeholder="🔎 Pesquisar" onChange={this.HendoleInput} />
               <div>
-                <img src={IcoRoxo} alt="dor"/>
+                <img src={IcoRoxo} alt="Icone"/>
               <img src={setabaixo} alt="seta"/>
               </div>
               
@@ -123,6 +116,7 @@ HendoleInput = (e) => {
         </nav>
         <Routes>
           <Route path="/" element={<Inicío/>}/>
+          <Route path="/Todos" element={ <Todos/>} />
         </Routes>
 
 
