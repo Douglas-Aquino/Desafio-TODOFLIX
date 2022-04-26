@@ -10,25 +10,35 @@ position:absolute;
 top:-1vw;
 left:43.2vw;
 `
+const T2 =styled.h2`
+border:solid red;
+width:10vw;
+margin-top:5;
+`
+
 export default class ModalHeader extends React.Component{
     
     
     render(){
         return(
+            <>
+            <h2>Essa é o ModalHeader</h2>
+
             <ListRouter>
                     <nav>
                         <ul>
                             <li>
-                                <Link to="Todos">Todos</Link>
+                                <Link to="/Todos">Todos</Link>
                             </li>
                         </ul>
                     </nav>
                     <Routes>
-                        <Route path="Todos" element={ <Todos/>} />
+                        <Route path="/Todos" element={ <Todos/>} />
                     </Routes>
                     
 
             </ListRouter>
+            </>
         )
     }
 }

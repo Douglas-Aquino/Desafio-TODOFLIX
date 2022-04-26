@@ -7,6 +7,7 @@ import { createGlobalStyle } from "styled-components"
 import IcoRoxo from "./Imagens/IcoRoxo.svg"
 import setabaixo from "./Imagens/setabaixo.svg"
 import Lupa from "./Imagens/Lupa.svg"
+import Modal from "react-modal/lib/components/Modal"
 
 const GlobalStyle = createGlobalStyle` 
   * {
@@ -18,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
     background-color:black;
     color:white;
   }
-`;
+`
 
 const CotainHeader = styled.div`
 ul{
@@ -31,6 +32,7 @@ align-items:center;
 h1{
   color:red;
   font-size:3vw;
+  font-family: 'Bebas Neue', cursive;
 }
 `
 const List1 = styled.div`
@@ -47,7 +49,7 @@ width:40vw;
 padding:1vw;
 `
 const StyleInput = styled.input`
-Background-image:URL("blob:https://xd.adobe.com/680a7845-6293-4e3a-9087-5714b1f13d43");
+background-image:URL={Lupa}; 
 padding:0.5vw;
 background-color:grey;
 border-radius:5px;
@@ -55,7 +57,6 @@ width:20vw;
 
 ::placeholder {
   color:white;
-  background-image:URL{Lupa}; 
 }
 `
 const StyleButton = styled.button`
@@ -63,8 +64,25 @@ background-color:red;
 padding:0.5vw;
 border-radius:5px;
 `
+
+
 export default class App extends React.Component{
-  
+ 
+state={
+  Add:false,
+  Input:[]
+}
+
+ModalAdd = () => {
+this.setState({add: !this.state.Add})
+}
+
+HendoleInput = (e) => {
+  this.setState({Input:e.target.value})
+}
+
+
+
   render(){
     return(
       <Router> <GlobalStyle/>
@@ -78,10 +96,22 @@ export default class App extends React.Component{
               </List1>
               <List2>
                 <li>
-                <StyleButton >Adicionar filme</StyleButton >  
+                <StyleButton onClick={this.ModalAdd}>Adicionar filme</StyleButton >
+                <Modal
+                style={{
+
+                  content: {
+                    backgroundColor:"white",
+                  
+                  }
+                }}
+                aberto={this.state.Add}
+                >
+                  <p>aberto</p>
+                </Modal>
                 </li> 
 
-                <StyleInput type="text" placeholder="Pesquisar" />
+                <StyleInput type="text" placeholder="Pesquisar" onChange={this.HendoleInput} />
               <div>
                 <img src={IcoRoxo} alt="dor"/>
               <img src={setabaixo} alt="seta"/>

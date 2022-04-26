@@ -2,6 +2,7 @@ import React from "react"
 import Carousel from "nuka-carousel"
 import Eternos from "../Imagens/Eternos.png"
 import styled from "styled-components"
+// import Coraçao from "../Imagens/Coraçao"
 
 
 const Intro = styled.div`
@@ -27,36 +28,45 @@ button{
     background-color:grey;
 }
 `
-const ContainCarrossel = styled.div`
-margin-top:3vw;
+const T3 =styled.div`
+margin-top:2vw;
+margin-left:3vw;
+font-size:1.5rem;
+`
 
+const ContainCarrossel = styled.div`
+display:flex;
+align-items:flex-start;
+justify-content:center;
+margin-top:2vw;
+border:solid blue;
 
 img{
     width:10vw;
     border-radius:10px;
-    margin-left:5vw;
-    &:hover{
-        cursor:pointer;
-        width:12vw;
-        transition:width 0.8s;
-    }
     
 }
 
-h3{
-    padding:2vw;
+ul{
+    display:flex;
+    align-items:center;
+    justify-content: space-evenly;
+    flex-direction:column;
+    width:100%;
+    height:100%;
+    border:solid ;
 }
 
 h4{
-    margin-left:5vw;
+    border:solid red;
+
 }
 
 p{
-    padding:1vw;
-    margin-left:5vw;
+    border:solid red;
+
 }
 `
-// const StyleCarouse = styled
 
 export default class Inicío extends React.Component{
 
@@ -106,15 +116,17 @@ state = {
                     <h2>Eternos</h2>
                     <p>Os Eternos são uma raça de seres imortais que viveram durante a antiguidade da Terra, moldando sua história e suas civilizações enquanto batalhavam os malignos Deviantes.</p>
                 </StyleText>
-            </Intro>
+            </Intro> 
+            <T3>Destaques</T3>
             <ContainCarrossel>
-                <h3>Destaques</h3>
+               
             
-                <Carousel slidesToShow={4}
+                <Carousel slidesToShow={3}
                 wrapAround={true}
-                autoplay={true}
+                autoplay={false}
+                pagination={false}
                 >
-                    {this.state.Filmes.map((item) => (
+                    {this.state.Filmes.map(item => (
                     <ul>
                         <img src={item.poster}/>
                         <h4>{item.nome}</h4>
