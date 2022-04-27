@@ -1,9 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import { BrowserRouter as Router,Routes,Route,Link } from "react-router-dom"
 import Todos from "./Todos";
 
 
-const ListLink = styled.div`
+const ListLink = styled(Router)`
 width:8vw;
 position:absolute;
 top:3.2vw;
@@ -38,7 +39,7 @@ export default class ModalHeader extends React.Component{
                     <nav>
                         <ul>
                             <li>
-                                <a href="">Todos</a>
+                                <Link to="/Todos">Todos</Link>
                             </li>
                             <li>
                                 <a href="">Favoritos</a>

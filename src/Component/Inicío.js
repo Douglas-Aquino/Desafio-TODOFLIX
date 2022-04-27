@@ -20,12 +20,12 @@ display:flex;
 flex-direction: column;
 justify-content:space-evenly;
 align-items:start;
-padding:3vw 0.5vw;
+height:35vh;
 line-height:2vw;
+margin-left:2vw;
 
-button{
+img{
     width:1vw;
-    background-color:grey;
 }
 `
 const T3 =styled.div`
@@ -90,9 +90,18 @@ state = {
             nome:"Shrek",
             descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
             poster:"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/91/54/04/20150812.jpg"
-        }]
+        }],
+        coraçaoC:"https://images.emojiterra.com/google/android-11/512px/1f90d.png",
+        coraçaoV:"https://images.emojiterra.com/google/noto-emoji/v2.034/512px/2764.png"
 } 
-
+ 
+//  TrocaHear =() =>{
+//     this.setState({
+//         if(TrocaHear == coraçaoC){
+//             coraçaoC:coraçaoV
+//         }
+//     })
+// }
 
     render(){
         return(
@@ -100,7 +109,7 @@ state = {
             <Intro>
                 <img src={Eternos} alt="Eternos"/>
                 <StyleText>
-                    <button>coração</button>
+                    <img src={this.state.coraçaoV} onClick={this.TrocaHear}/>
                     <p>Visto resentemente </p>
                     <h2>Eternos</h2>
                     <p>Os Eternos são uma raça de seres imortais que viveram durante a antiguidade da Terra, moldando sua história e suas civilizações enquanto batalhavam os malignos Deviantes.</p>
