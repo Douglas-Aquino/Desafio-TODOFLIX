@@ -2,6 +2,7 @@ import React from "react"
 import Carousel from "nuka-carousel"
 import Eternos from "../Imagens/Eternos.png"
 import styled from "styled-components"
+// import Star from "../Component/Star"
 // import Coraçao from "../Imagens/Coraçao"
 
 
@@ -87,21 +88,39 @@ state = {
             poster:"https://br.web.img2.acsta.net/pictures/22/03/02/17/11/3732338.png"
         },
         {
+            nome:"uncharted fora do mapa",
+            descriçao:"Nathan Drake e seu parceiro canastrão Victor Sully Sullivan embarcam em uma perigosa busca para encontrar o maior tesouro jamais encontrado. Enquanto isso, eles também rastreiam pistas que podem levar ao irmão perdido de Nathan.",
+            poster:"https://ingresso-a.akamaihd.net/prd/img/movie/uncharted-fora-do-mapa/479c44b0-e337-43af-bf4a-52dee561bb31.jpg?impolicy=nsm-poster"
+        },{
+            nome:"Filhos do Privilégio",
+            descriçao:"Um adolescente e seus amigos investigam uma série de acontecimentos sobrenaturais e descobrem uma conspiração sinistra.",
+            poster:"https://br.web.img2.acsta.net/c_310_420/pictures/22/02/09/22/32/5111529.jpg"
+        },{
+            nome:"Pânico 5",
+            descriçao:"Vinte e cinco anos após uma série de crimes brutais chocar a tranquila Woodsboro, um novo assassino se apropria da máscara de Ghostface e começa a perseguir um grupo de adolescentes para trazer à tona segredos do passado mortal da cidade.",
+            poster:"https://br.web.img3.acsta.net/pictures/21/10/13/21/56/4755833.jpg"
+        },{
+            nome:"Juntos e enrolados",
+            descriçao:"Após dois anos de união e muita economia financeira, Júlio e Daiana finalmente alcançaram o sonho de realizar a festa de casamento.Uma confusão generalizada acontece, mas a festa precisa continuar.",
+            poster:"https://assetsgn.nowonline.com.br/assets/p17809274_v_v8_ac.jpg"
+        },
+        {
             nome:"Shrek",
             descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
             poster:"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/91/54/04/20150812.jpg"
         }],
-        coraçaoC:"https://images.emojiterra.com/google/android-11/512px/1f90d.png",
-        coraçaoV:"https://images.emojiterra.com/google/noto-emoji/v2.034/512px/2764.png"
+        coracao:true
+        // coraçaoC:"https://images.emojiterra.com/google/android-11/512px/1f90d.png",
+        // coraçaoV:"https://images.emojiterra.com/google/noto-emoji/v2.034/512px/2764.png"
 } 
  
-//  TrocaHear =() =>{
-//     this.setState({
-//         if(TrocaHear == coraçaoC){
-//             coraçaoC:coraçaoV
-//         }
-//     })
-// }
+ TrocaHear =() =>{
+    this.setState({
+    coracao:!this.state.coracao
+          
+        }
+    )
+}
 
     render(){
         return(
@@ -109,17 +128,18 @@ state = {
             <Intro>
                 <img src={Eternos} alt="Eternos"/>
                 <StyleText>
-                    <img src={this.state.coraçaoV} onClick={this.TrocaHear}/>
+                {this.state.coracao? <img src="https://images.emojiterra.com/google/android-11/512px/1f90d.png" onClick={this.TrocaHear}/> : <img src="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/2764.png" onClick={this.TrocaHear}/>}
                     <p>Visto resentemente </p>
                     <h2>Eternos</h2>
                     <p>Os Eternos são uma raça de seres imortais que viveram durante a antiguidade da Terra, moldando sua história e suas civilizações enquanto batalhavam os malignos Deviantes.</p>
+                    {/* <Star/> */}
                 </StyleText>
             </Intro> 
             <T3>Destaques</T3>
             <ContainCarrossel>
                
             
-                <Carousel slidesToShow={3}
+                <Carousel slidesToShow={4}
                 wrapAround={true}
                 autoplay={true}
                 adaptiveHeight={true}

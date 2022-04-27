@@ -1,6 +1,37 @@
 import React from "react";
 import styled from "styled-components";
-import { BrowserRouter as Router,Routes,Route,Link } from "react-router-dom"
+
+const ContainMap = styled.div`
+display:flex;
+width:93vw;
+margin-top:3vw;
+margin-left:3vw;
+flex-wrap:wrap;
+
+ul{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    width:30vw;
+    padding:2vh;
+
+    li{
+        padding:2vh 0;
+        width:100%;
+        
+    }
+
+img{
+    margin-left:25%;
+    width:15vw;
+    border-radius:10px;
+}
+`
+const T2 = styled.h2`
+margin-left:10vw;
+font-size:3vw;
+`
+
 export default class Todos extends React.Component{
 
     state = {
@@ -31,27 +62,44 @@ export default class Todos extends React.Component{
                 poster:"https://br.web.img2.acsta.net/pictures/22/03/02/17/11/3732338.png"
             },
             {
+                nome:"uncharted fora do mapa",
+                descriçao:"Nathan Drake e seu parceiro canastrão Victor Sully Sullivan embarcam em uma perigosa busca para encontrar o maior tesouro jamais encontrado. Enquanto isso, eles também rastreiam pistas que podem levar ao irmão perdido de Nathan.",
+                poster:"https://ingresso-a.akamaihd.net/prd/img/movie/uncharted-fora-do-mapa/479c44b0-e337-43af-bf4a-52dee561bb31.jpg?impolicy=nsm-poster"
+            },{
+                nome:"Filhos do Privilégio",
+                descriçao:"Um adolescente e seus amigos investigam uma série de acontecimentos sobrenaturais e descobrem uma conspiração sinistra.",
+                poster:"https://br.web.img2.acsta.net/c_310_420/pictures/22/02/09/22/32/5111529.jpg"
+            },{
+                nome:"Pânico 5",
+                descriçao:"Vinte e cinco anos após uma série de crimes brutais chocar a tranquila Woodsboro, um novo assassino se apropria da máscara de Ghostface e começa a perseguir um grupo de adolescentes para trazer à tona segredos do passado mortal da cidade.",
+                poster:"https://br.web.img3.acsta.net/pictures/21/10/13/21/56/4755833.jpg"
+            },{
+                nome:"Juntos e enrolados",
+                descriçao:"Após dois anos de união e muita economia financeira, Júlio e Daiana finalmente alcançaram o sonho de realizar a festa de casamento. Tudo parece estar indo bem, até que o noivo recebe uma mensagem em seu celular antes da cerimônia começar. Uma confusão generalizada acontece, mas a festa precisa continuar.",
+                poster:"https://assetsgn.nowonline.com.br/assets/p17809274_v_v8_ac.jpg"
+            },
+            {
                 nome:"Shrek",
                 descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
                 poster:"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/91/54/04/20150812.jpg"
             }],
     } 
 
-
-    
-    
     render(){
         return(
             <>
-            
-                <h2>Todos</h2>
-                {this.state.Filmes.map(item => (
+            <div><T2>Todos</T2></div>
+                <ContainMap>  
+                    {this.state.Filmes.map(item => (
                     <ul>
-                        {item.nome}
-                        <img src={item.poster}/>
-                        {item.descriçao}
+                       
+                       <li> <img src={item.poster}/></li> 
+                       <li>{item.nome}</li> 
+                       <li>{item.descriçao}</li>
                     </ul>
                 ))}
+                </ContainMap>
+              
             </>
         )
     }
