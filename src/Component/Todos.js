@@ -48,7 +48,7 @@ export default class Todos extends React.Component{
                 {this.state.Filmes.map(item => (
                     <ul>
                         {item.nome}
-                        {item.poster}
+                        <img src={item.poster}/>
                         {item.descriçao}
                     </ul>
                 ))}

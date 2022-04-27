@@ -146,15 +146,10 @@ HendoFilter = (e) => {
                 <StyleButton onClick={this.ModalAdd}>Adicionar filme</StyleButton >
                   {this.state.Add && <AddModal/>}
                 </li> 
-
-                {/* <StyleInput type="text" placeholder="🔎 Pesquisar" onChange={this.HendoFilter} >
-                {this.state.FilmeImput.map((item) => (
-                <li><img src={item.poster}/>
-                    {item.nome}
-                    {item.descriçao}
                 
-                </li>
-                ) )} </StyleInput> */}
+                <StyleInput type="text" placeholder="🔎 Pesquisar" onChange={this.HendoFilter}/>
+              
+                
                 <div>
                 <img src={IcoRoxo} alt="Icone"/>
               <img src={setabaixo} alt="seta"/>
