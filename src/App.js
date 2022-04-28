@@ -6,8 +6,6 @@ import Inicío from "./Component/Inicío"
 import { createGlobalStyle } from "styled-components"
 import IcoRoxo from "./Imagens/IcoRoxo.svg"
 import setabaixo from "./Imagens/setabaixo.svg"
-// import Lupa from "./Imagens/Lupa.svg"
-// import Modal from "react-modal/lib/components/Modal"
 import Todos from "./Component/Todos"
 import AddModal from "./Component/ModalAdd"
 
@@ -60,11 +58,6 @@ border:solid black;
 ::placeholder {
   color:white;
 }
-`
-const StyleButton = styled.button`
-background-color:red;
-padding:0.5vw;
-border-radius:5px;
 `
 const ContainMap = styled.div`
 display:flex;
@@ -186,8 +179,7 @@ HendoFilter = (e) => {
               <List2>
 
                 <li>
-                <StyleButton onClick={this.ModalAdd}>Adicionar filme</StyleButton >
-                  {this.state.Add && <AddModal/>}
+               <AddModal/>
                 </li> 
                 
                 <StyleInput type="text" placeholder="🔎 Pesquisar" onChange={this.HendoFilter}/>
