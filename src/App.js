@@ -66,7 +66,33 @@ background-color:red;
 padding:0.5vw;
 border-radius:5px;
 `
+const ContainMap = styled.div`
+display:flex;
+width:100%;
+flex-wrap:wrap;
+position:absolute;
+top:10vh;
+left:0;
+z-index:100;
+ul{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    width:30vw;
+    padding:2vh;
 
+    li{
+        padding:2vh 0;
+        width:100%;
+        
+    }
+
+img{
+    margin-left:25%;
+    width:15vw;
+    border-radius:10px;
+}
+`
 
 export default class App extends React.Component{
  
@@ -128,9 +154,9 @@ this.setState({add: !this.state.Add})
 }
 
 HendoFilter = (e) => {
-  const {FilmeInput} = this.state
+  const {Filmes} = this.state
 
-  const FilterMovies  = FilmeInput.filter((item) => {
+  const FilterMovies  = Filmes.filter((item) => {
     if(item.nome.toLowerCase().includes(e.target.value.toLowerCase())){
       return true
     }
@@ -165,12 +191,20 @@ HendoFilter = (e) => {
                 </li> 
                 
                 <StyleInput type="text" placeholder="🔎 Pesquisar" onChange={this.HendoFilter}/>
-              
+                <ContainMap>
+                    {this.state.FilmeInput.map(item => (
+                        <ul>
+                        <img src={item.poster}/> 
+                        <li>{item.nome}</li> 
+                        <li>{item.descriçao}</li>
+                        </ul>
+                    ))}
+                </ContainMap>
                 
                 <div>
                 <img src={IcoRoxo} alt="Icone"/>
-              <img src={setabaixo} alt="seta"/>
-              </div>
+                <img src={setabaixo} alt="seta"/>
+                </div>
               
              </List2>
             </ul>

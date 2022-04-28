@@ -29,9 +29,50 @@ img{
 `
 const T2 = styled.h2`
 margin-left:10vw;
+margin-top:2vw;
 font-size:3vw;
 `
+const ContainInput = styled.div`
+display:flex;
+width:93vw;
+margin-top:3vw;
+margin-left:3vw;
+flex-wrap:wrap;
 
+ul{
+    display:flex;
+    justify-content:center;
+    flex-direction:column;
+    width:30vw;
+    padding:2vh;
+
+    li{
+        padding:2vh 0;
+        width:100%;
+        
+    }
+
+img{
+    margin-left:25%;
+    width:15vw;
+    border-radius:10px;
+}
+`
+const StyledInput =styled.input`
+padding:0.5vw;
+background-color:grey;
+border-radius:5px;
+width:20vw;
+border:solid black;
+position:absolute;
+top:2vh;
+left:66vw;
+z-index:100;
+
+::placeholder {
+  color:white;
+}
+`
 export default class Todos extends React.Component{
 
     state = {
@@ -83,12 +124,43 @@ export default class Todos extends React.Component{
                 descriçao:"Para resgatar uma princesa das garras de um dragão que cospe fogo, o ogro Shrek se une a um companheiro improvável: um burro brincalhão.",
                 poster:"https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/91/54/04/20150812.jpg"
             }],
+            FilmeInput:[]
     } 
+
+    HendoFilter = (e) => {
+        const {Filmes} = this.state
+      
+        const FilterMovies  = Filmes.filter((item) => {
+          if(item.nome.toLowerCase().includes(e.target.value.toLowerCase())){
+            return true
+          }
+        })
+        this.setState({
+          FilmeInput:FilterMovies
+        })
+        if(e.target.value === ""){
+          this.setState({FilmeInput:[]})
+        }
+      }
+
 
     render(){
         return(
             <>
-            <div><T2>Todos</T2></div>
+            <div>
+                <T2>Todos:</T2>
+                <StyledInput type="text"  placeholder="🔎 Pesquisar" onChange={this.HendoFilter}/>
+                <ContainInput>
+                    {this.state.FilmeInput.map(item => (
+                        <ul>
+                        <img src={item.poster}/> 
+                        <li>{item.nome}</li> 
+                        <li>{item.descriçao}</li>
+                        </ul>
+                    ))}
+                </ContainInput>
+                
+            </div>
                 <ContainMap>  
                     {this.state.Filmes.map(item => (
                     <ul>
@@ -99,7 +171,6 @@ export default class Todos extends React.Component{
                     </ul>
                 ))}
                 </ContainMap>
-              
             </>
         )
     }
